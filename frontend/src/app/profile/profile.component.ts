@@ -38,6 +38,7 @@ export class ProfileComponent implements OnInit {
   userData: any;
 
   modalRef: BsModalRef;
+  userRole: any;
 
   constructor(
     private fb: FormBuilder,
@@ -52,6 +53,7 @@ export class ProfileComponent implements OnInit {
     this.updateUserFormInitializer();
     this.userId = JSON.parse(localStorage.getItem("user")).userId;
     this.access_token = JSON.parse(localStorage.getItem("user")).id;
+    this.userRole = JSON.parse(localStorage.getItem("user")).userRole;
   }
 
   // get user current location

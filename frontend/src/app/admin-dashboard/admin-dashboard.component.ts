@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpRequestService } from "../service/http-request.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-dashboard",
@@ -11,7 +12,9 @@ export class AdminDashboardComponent implements OnInit {
   usersArr: any;
   userId: any;
 
-  constructor(private httpService: HttpRequestService) {
+  constructor(
+    private httpService: HttpRequestService,
+    private router: Router) {
     this.userId = JSON.parse(localStorage.getItem("user")).userId;
     this.access_token = JSON.parse(localStorage.getItem("user")).id;
   }

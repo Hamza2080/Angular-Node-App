@@ -2,7 +2,7 @@
   <a routerLink="/user_profile">
     <span class="px-1 py-1 font-weight-normal nav-hover" style="color:black">Profile</span>
   </a>
-  <a routerLink="/dashboard">
+  <a routerLink="/dashboard" *ngIf="userRole == 'admin'">
     <span class="px-1 py-1 font-weight-normal nav-hover" style="color:black">Dashboard</span>
   </a>
   <a (click)="logout()">
@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row mt-3 header-div">
     <div class="col-lg-3 col-md-3 col-sm-3">
-      <img class="profile-img mx-auto d-block" [src]="profileImageUrl" alt="">
+      <img class="profile-img mx-auto d-block" [src]="profileImageUrl + '?access_token=' + access_token" alt="">
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
       <!-- <button class="btn btn-secondary float-right align-top mt-1 px-5" (click)="logout()">Logout</button> -->

@@ -14,29 +14,28 @@ module.exports = function (Appuser) {
    * 
    */
   Appuser.sendEmail = function (emailObj, cb) {
-    cb();
-    //nodemailer requires transport service to send an email
-    // var transporter = nodemailer.createTransport({
-    //   service: 'gmail',
-    //   auth: {
-    //     user: myEmail,
-    //     pass: myPassword
-    //   }
-    // });
+    // nodemailer requires transport service to send an email
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: myEmail,
+        pass: myPassword
+      }
+    });
 
-    // const mailOptions = {
-    //   from: emailObj.from, // sender address
-    //   to: emailObj.to, // list of receivers
-    //   subject: emailObj.subject, // Subject line
-    //   html: emailObj.html // plain text body
-    // };
+    const mailOptions = {
+      from: emailObj.from, // sender address
+      to: emailObj.to, // list of receivers
+      subject: emailObj.subject, // Subject line
+      html: emailObj.html // plain text body
+    };
 
-    // transporter.sendMail(mailOptions, function (err, info) {
-    //   if (err)
-    //     cb(err)
-    //   else
-    //     cb(null, info);
-    // });
+    transporter.sendMail(mailOptions, function (err, info) {
+      if (err)
+        cb(err)
+      else
+        cb(null, info);
+    });
   }
 
   Appuser.remoteMethod('sendEmail', {
