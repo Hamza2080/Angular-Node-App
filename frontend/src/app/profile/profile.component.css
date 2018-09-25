@@ -1,0 +1,55 @@
+
+.nav {
+  background : lightgray;
+  border : 0.5px solid black;
+}
+
+.nav-hover:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header-div {
+  min-height: 150px;
+  background: #edeff2;
+  border: 0.6px solid white;
+}
+
+.profile-img {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  max-width: 150px;
+  height: 135px;
+  border-radius: 50px;
+  border: solid black 2px;
+}
+
+.upload-btn {
+  margin-top: 115px;
+  padding: 10px 41px;
+}
+
+.edit-user-btn {
+  padding: 10px 40px;
+}
+
+.edit-user-icon {
+  margin: 0px 10px;
+}
+
+agm-map {
+  height: 300px;
+  width: 100%;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+.file-upload {
+  background: #edeff2;
+  margin-top: 100px;
+  border: none;
+}

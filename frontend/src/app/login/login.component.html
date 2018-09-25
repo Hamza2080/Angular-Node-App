@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="loginError">
+    <strong>Error ! </strong> either check your credentials or verify your email before login.
+  </div>
+
+  <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" novalidate>
+
+    <!-- form heading -->
+    <div class="modal-body full-w-search p-b-0">
+      <div class="row">
+        <div class="col-lg-12 text-center h2">
+          Login
+        </div>
+      </div>
+      <hr>
+
+      <!-- email field -->
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" [formControl]="loginForm.controls['email']"
+          [ngClass]="{'loginForm-control-danger': loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched}">
+        <div style="color:red" class="form-control-feedback" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email
+          is required.</div>
+        <div style="color:red" class="form-control-feedback" *ngIf="(loginForm.controls['email'].invalid && loginForm.controls['email'].touched && !loginForm.controls['email'].hasError('required'))">Correct
+          syntax : example@123.com</div>
+      </div>
+
+      <!-- password -->
+      <div class="form-group">
+        <input class="form-control" type="password" placeholder="********" [formControl]="loginForm.controls['password']"
+          [ngClass]="{'form-control-danger': loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched}">
+        <div style="color:red" class="form-control-feedback" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password
+          is required.</div>
+        <div style="color:red" class="form-control-feedback" *ngIf="loginForm.controls['password'].hasError('pattern')">Password
+          must be 8 char long having uppercase,lowercase and specialcharacter.</div>
+      </div>
+
+      <!-- submit button -->
+      <div class="clearfix">
+        <div class="btn-toolbar float-right mt-1 ml-1">
+          <button class="btn btn-inverse btn-sm" routerLink="/signup">Signup</button>
+        </div>
+        <div class="btn-toolbar float-right m-t-1">
+          <button class="btn btn-inverse btn-sm" type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+.user_detail {
+  float: right;
+  font-weight: bold;
+}
+
+agm-map {
+  height: 100vh;
+}
+
+.nav {
+  background: lightgray;
+  border: 0.5px solid black;
+}
+
+.nav-hover:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}

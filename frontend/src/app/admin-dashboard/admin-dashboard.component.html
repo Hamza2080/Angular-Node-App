@@ -1,0 +1,43 @@
+<div class="nav mx-2 my-2 px-2 py-2">
+  <a routerLink="/user_profile">
+    <span class="px-1 py-1 font-weight-normal nav-hover" style="color:black">Profile</span>
+  </a>
+  <a routerLink="/dashboard">
+    <span class="px-1 py-1 font-weight-normal nav-hover" style="color:black">Dashboard</span>
+  </a>
+  <a (click)="logout()">
+    <span class="px-1 py-1 font-weight-normal nav-hover">Logout</span>
+  </a>
+</div>
+
+<div class="header mt-2">
+  <div class="row mx-2">
+    <div class="col" style="color:green">
+      Admin <i class="fas fa-circle ml-1"></i>
+    </div>
+    <div class="col">
+      <span class="user_detail"></span>
+    </div>
+  </div>
+</div>
+
+<div class="mt-2 mx-1">
+  <hr>
+</div>
+
+<div *ngIf="usersArr?.user.length > 0">
+  <agm-map [latitude]="usersArr?.user[0]?.lat" [longitude]="usersArr?.user[0]?.lng">
+    <agm-marker *ngFor="let marker of usersArr.user" [latitude]="marker.lat" [longitude]="marker.lng">
+      <agm-info-window [isOpen]="" [latitude]="marker.lat" [longitude]="marker.lng">
+        #{{marker.id}} <br />
+        {{marker.username}} <br />
+        {{marker.email}} <br />
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
+
+<div *ngIf="usersArr?.user?.length <= 0">
+  No user fond with this admin
+</div>
