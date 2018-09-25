@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
 
   @ViewChild("search")
   public originSearch: ElementRef;
+  emailSend: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -219,7 +220,12 @@ export class SignupComponent implements OnInit {
     this.signUpForm.controls['lng'].setValue(this.lng);
     this.httpService.signup(this.signUpForm.value).subscribe(
       user => {
-        this.router.navigate(["/login"]);
+        window.scroll(0, 0);
+        this.emailSend = true;
+        setTimeout(() => {
+          this.emailSend = false;
+          this.router.navigate(["/login"]);
+        }, 3000);
       },
       err => {
         window.scroll(0, 0);

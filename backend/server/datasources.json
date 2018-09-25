@@ -16,7 +16,7 @@
   },
   "mongo": {
     "host": "localhost",
-    "port": 27017,
+    "port": 33017,
     "url": "",
     "database": "TestDB",
     "password": "",
